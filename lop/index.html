@@ -1,0 +1,109 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> <meta charset="UTF-8" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+        <title>VESTIS — Modern Clothing</title> <link rel="stylesheet" href="lo.css" /> 
+    </head> 
+    <body> <!-- TOP BANNER --> 
+        <div id="top-banner"> <span>✦ Free shipping on orders above ₹999 &nbsp;&nbsp;|&nbsp;&nbsp; New arrivals every Monday ✦</span> 
+            <button id="close-banner" aria-label="Close banner">✕</button> 
+        </div> <!-- STICKY HEADER --> 
+        <header id="main-header"> 
+            <div class="header-inner"> 
+                <div class="logo-wrap"> 
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"> 
+                        <rect width="28" height="28" rx="4" fill="#111"/> <path d="M7 8h14M10 8v12M18 8v12M10 14h8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/> </svg> <span class="logo-text">VESTIS</span> 
+                    </div> <nav class="nav-links"> 
+                        <button class="nav-btn active" data-view="home">Home</button> 
+                        <button class="nav-btn" data-view="seller">Sell</button> 
+                        <button class="nav-btn cart-btn" data-view="cart"> Cart <span id="cart-count" class="cart-badge">0</span> </button> 
+                        <button class="nav-btn" data-view="login" id="login-nav-btn">Login</button> 
+                        <button class="nav-btn profile-btn" data-view="profile" id="profile-nav-btn" aria-label="Profile"> 
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> 
+                                <circle cx="12" cy="8" r="4"/> <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/> </svg> </button> 
+                            </nav> 
+                        </div> 
+                    </header> <!-- MAIN CONTENT VIEWS --> 
+                    <main id="app"> <!-- HOME VIEW --> 
+                        <section id="view-home" class="view active"> 
+                            <div class="hero-strip"> <p class="hero-label">New Season</p> 
+                                <h1 class="hero-title">Effortless<br>Everyday Style</h1> <p class="hero-sub">Curated pieces for the modern wardrobe.</p> 
+                            </div> 
+                            <div class="section-header"> 
+                                <h2>All Products</h2> 
+                                <span class="section-line"></span> 
+                            </div> 
+                            <div id="product-grid" class="product-grid"></div> 
+                        </section> <!-- PRODUCT DETAIL VIEW --> 
+                        <section id="view-product" class="view"> 
+                            <button class="back-btn" id="back-to-home">← Back to Products</button> 
+                            <div class="product-detail-layout"> 
+                                <div class="product-gallery"> 
+                                    <div class="gallery-main"> 
+                                        <img id="gallery-main-img" src="" alt="Product" /> 
+                                    </div> <div class="gallery-thumbs" id="gallery-thumbs"></div> 
+                                </div> 
+                                <div class="product-info-panel"> 
+                                    <h1 id="detail-title"></h1> 
+                                    <div class="detail-rating" id="detail-rating">
+                                    </div> 
+                                    <p class="detail-price" id="detail-price"></p> 
+                                    <p class="detail-desc" id="detail-desc"></p> 
+                                    <div class="detail-actions"> 
+                                        <button class="btn-primary" id="detail-add-cart">Add to Cart</button> 
+                                        <button class="btn-secondary" id="detail-buy-now">Buy Now</button> 
+                                    </div> <!-- REVIEWS --> 
+                                    <div class="review-section"> 
+                                        <h3>Customer Reviews</h3> 
+                                        <div class="review-form"> 
+                                            <label>Your Rating</label> 
+                                            <div class="star-input" id="star-input"> 
+                                                <span data-val="1">★</span> 
+                                                <span data-val="2">★</span> 
+                                                <span data-val="3">★</span> 
+                                                <span data-val="4">★</span> 
+                                                <span data-val="5">★</span> 
+                                            </div> 
+                                            <textarea id="review-text" placeholder="Share your thoughts about this product..." rows="3"></textarea> 
+                                            <button class="btn-outline" id="submit-review">Submit Review</button> 
+                                        </div> 
+                                        <div id="review-list" class="review-list"></div> 
+                                    </div> 
+                                </div> 
+                            </div>
+                         </section> <!-- CART SIDE PANEL --> 
+                         <div id="cart-overlay" class="cart-overlay hidden"></div> 
+                         <aside id="cart-panel" class="cart-panel hidden"> 
+                            <div class="cart-header"> <h2>Your Cart</h2> 
+                                <button id="close-cart" aria-label="Close cart">✕</button> 
+                            </div> <div id="cart-items" class="cart-items"></div> 
+                            <div class="cart-footer"> 
+                                <div class="cart-total"> 
+                                    <span>Total</span> 
+                                    <span id="cart-total-price">₹0</span> 
+                                </div> 
+                                <button class="btn-primary full-width" id="checkout-btn">Proceed to Checkout</button> 
+                            </div> 
+                        </aside> <!-- LOGIN VIEW --> 
+                        <section id="view-login" class="view auth-view"> 
+                            <div class="auth-card"> 
+                                <div class="auth-logo"> 
+                                    <svg width="32" height="32" viewBox="0 0 28 28" fill="none"> 
+                                        <rect width="28" height="28" rx="4" fill="#111"/> 
+                                        <path d="M7 8h14M10 8v12M18 8v12M10 14h8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/> </svg> <span>VESTIS</span> 
+                                    </div> 
+                                    <h2>Welcome Back</h2> 
+                                    <p class="auth-sub">Sign in to your account</p> 
+                                    <div id="login-error" class="auth-error hidden">Invalid email or password.</div> 
+                                    <div class="form-group"> 
+                                        <label for="login-email">Email</label> 
+                                        <input type="email" id="login-email" placeholder="you@example.com" /> 
+                                    </div> 
+                                    <div class="form-group"> 
+                                        <label for="login-password">Password</label> 
+                                        <input type="password" id="login-password" placeholder="••••••••••" /> 
+                                    </div> 
+                                    <button class="btn-primary full-width" id="login-submit">Sign In</button> 
+                                    <p class="auth-hint">Demo: kkmenon@gmail.com / 123456789</p> 
+                                </div> 
+                            </section> <!-- PROFILE VIEW --> <section id="view-profile" class="view"> <div class="profile-wrap"> <div class="profile-avatar"> <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.5"> <circle cx="12" cy="8" r="4"/> <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/> </svg> </div> <h2 id="profile-name">My Account</h2> <div class="profile-card"> <div class="profile-field"><span class="pf-label">Email</span><span id="pf-email">—</span></div> <div class="profile-field"><span class="pf-label">Phone</span><span id="pf-phone">+91 98765 43210</span></div> <div class="profile-field"><span class="pf-label">Member Since</span><span>January 2024</span></div> </div> <div class="order-history"> <h3>Order History</h3> <div class="order-list"> <div class="order-item"><span>#ORD-2024-001</span><span>Linen Overshirt × 1</span><span class="order-status delivered">Delivered</span></div> <div class="order-item"><span>#ORD-2024-002</span><span>Slim Chinos × 2</span><span class="order-status shipped">Shipped</span></div> <div class="order-item"><span>#ORD-2024-003</span><span>Cotton Tee × 3</span><span class="order-status processing">Processing</span></div> </div> </div> <button class="btn-outline danger" id="logout-btn">Sign Out</button> </div> </section> <!-- SELLER VIEW --> <section id="view-seller" class="view"> <div class="seller-wrap"> <h2>Seller Dashboard</h2> <p class="seller-sub">Add new products to the store</p> <div class="seller-form"> <div class="form-group"> <label>Product Title</label> <input type="text" id="seller-title" placeholder="e.g. Classic Oxford Shirt" /> </div> <div class="form-group"> <label>Price (₹)</label> <input type="number" id="seller-price" placeholder="e.g. 1299" min="1" /> </div> <div class="form-group"> <label>Description</label> <textarea id="seller-desc" rows="3" placeholder="Brief product description..."></textarea> </div> <div class="form-group"> <label>Category</label> <select id="seller-category"> <option value="Men">Men</option> <option value="Women">Women</option> <option value="Unisex">Unisex</option> </select> </div> <div class="form-group"> <label>Image URLs (one per line)</label> <textarea id="seller-images" rows="4" placeholder="https://example.com/image1.jpg&#10;https://example.com/image2.jpg"></textarea> </div> <div id="seller-error" class="auth-error hidden">Please fill all required fields.</div> <div id="seller-success" class="auth-success hidden">Product added successfully!</div> <button class="btn-primary" id="seller-submit">Publish Product</button> </div> </div> </section> </main> <footer id="main-footer"> <div class="footer-inner"> <span class="footer-logo">VESTIS</span> <span>© 2025 Vestis. All rights reserved.</span> <div class="footer-links"> <a href="#">Privacy</a> <a href="#">Terms</a> <a href="#">Contact</a> </div> </div> </footer> <script src="lo.js"></script> </body> </html>
